@@ -21,10 +21,12 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
+    //make a loop takes a character from input. starting from the last one and concatinating it with a storage array.
+    let str = "";
+    for (var i = input.length - 1; i > -1; i--) {
+      str += input[i];
+    }
+    return str;
     // YOUR CODE GOES ABOVE HERE //
 }
 

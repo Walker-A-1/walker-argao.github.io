@@ -176,10 +176,9 @@ function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     //compare the two strings by alphabetical order. 
     //return 1 if the first is higher. return -1 if the if the second is higher. return 0 if they are equal
-    return stringOne.localeCompare(stringTwo);
+    return stringTwo.localeCompare(stringOne);
     // YOUR CODE ABOVE HERE //
 }
-sortAscending("w", "w");
 
 /**
  * Given two Strings, return 1 if the first is lower in alphabetical order than
@@ -190,10 +189,9 @@ sortAscending("w", "w");
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
-
+    //compare the two strings by alphabetical order. 
+    //return 1 if the first is lower. return -1 if the if the second is lower. return 0 if they are equal
+    return stringOne.localeCompare(stringTwo);
     // YOUR CODE ABOVE HERE //
 }
 
