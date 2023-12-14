@@ -12,12 +12,18 @@
  * base.
  */
 function createGreaterThanFilter(base) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    //test if base is a string
+        //if string then return a function that compares a new value to the base alphabetically. as if they are both strings.
+    //if number then return a function that compares a new value to the base, numerically.
+    if (typeof base === 'string') {
+        return function(value) {
+            return value.localeCompare(base) === 1
+        };
+    } else {
+        return function(value) {
+            return value > base;
+        }
+    }
 }
 
 /** 
@@ -26,12 +32,20 @@ function createGreaterThanFilter(base) {
  * base.
  */
 function createLessThanFilter(base) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    //test if the base is a string
+        //if string then return anonymous function
+            //anon function returns boolean value comparing base then value. alphabetically
+        //else return anonymous function
+            //anon function returns a boolean value if value is less than the base
+    if (typeof base === 'string') {
+        return function(value) {
+            return base.localeCompare(value) === 1;
+        } 
+    } else {
+        return function(value) {
+            return value < base;
+        }
+    }
 }
 
 /** 
@@ -40,12 +54,11 @@ function createLessThanFilter(base) {
  * character.
  */
 function createStartsWithFilter(startsWith) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    // return anonymous function
+        // anon function takes a string as a parameter. returns boolean weather the string starts with the startsWith character
+    return function(string) {
+        return string[0].toLowerCase() === startsWith.toLowerCase();
+    }
 }
 
 /** 
@@ -54,12 +67,12 @@ function createStartsWithFilter(startsWith) {
  * character.
  */
 function createEndsWithFilter(endsWith) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    //return an anonymous function
+        //anon function takes a string parameter.
+        //anon function returns true if the string argument ends with the endsWith character
+    return function(string) {
+        return string[string.length - 1].toLowerCase() === endsWith.toLowerCase();
+    }
 }
 
 /** 
@@ -70,12 +83,16 @@ function createEndsWithFilter(endsWith) {
  * the modify Function, but we need to collect the results into some collection.
  */
 function modifyStrings(strings, modify) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    //make a storage array
+    //make a for loop to iterate over the strings array
+        //on every iteration use the modify function to modify the current strings index
+        //store the modified string in the storage array
+    //return the storage array
+    let strg = [];
+    for (let i = 0; i < strings.length; i++) {
+        strg.push(modify(strings[i]));
+    }
+    return strg;
 }
 
 /** 
@@ -88,12 +105,15 @@ function modifyStrings(strings, modify) {
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
 function allStringsPass(strings, test) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    //make a for loop to iterate over the given strings array
+        //on every iteration use the test callback function and pass in the current index of strings at the argument
+    for (let i = 0; i < strings.length; i++) {
+        if (!test(strings[i])) {
+            return false;
+            break;
+        } 
+    } 
+    return true;
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

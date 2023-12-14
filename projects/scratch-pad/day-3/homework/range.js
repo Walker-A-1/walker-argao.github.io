@@ -22,12 +22,25 @@
  *  c. you'll wanna make use of the push() method of Array.
  */
 function range(start, end) {
-    // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE GOES ABOVE HERE //
+    //make a storage array
+    //test if the end is bigger than start
+        //if yes then, make a for loop that starts at start and increments(i++) to end
+        //push the current num to the storage array
+    //if start bigger than end do a different for loop
+        //this for loop starts at end and decrements(i--) to start
+        //push the current num to the storage array
+    let strg = [];
+    if (start < end) {
+        for (let num = start; num <= end; num++) {
+            strg.push(num);
+        }
+    return strg;
+    } else {
+        for (let num = start; num >= end; num--) {
+            strg.push(num);
+        }
+    return strg;
+    }
 }
 
 
