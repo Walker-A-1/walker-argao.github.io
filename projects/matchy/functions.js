@@ -46,12 +46,6 @@ function replace(animals, name, replacement) {
         //else do nothing
 
 }
-/**
- * 1. Write a function declaration called `remove` with a signature of `remove(animals, name)` that:
-   - Takes 2 parameters, an Array of animals, and a name of an animal on which to perform a search.
-   - If an animal with that name exists within the `animals` Array, remove it.
- 2. Test that it works on the website.
- */
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -65,19 +59,36 @@ function remove(animals, name) {
         if (animals[i].name === name) {
             //if yes then remove it
             //use slice to remove the specified array
-            animals.slice(i, 1);
+            animals.splice(i, 1);
         }
     }
 }
-console.log(animals);
-remove(animals, "Flappy");
-console.log(animals);
+
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
-
+//make a function called add
+//signature add(animals, animal) {}
+//animals is an Array
+//animal is an object
+function add(animals, animal) {
+    //check all of these conditions in the same if statement
+    //does the animal object have a name property with length > 0
+    //does the animal object have a species property with length > 0
+    //does the animal object name property NOT match other name properties of the existing animal objects
+    if(
+        animal.name.length > 0 &&
+        animal.species.length > 0
+    ) {
+        //if yes add that animal object to the animals Array
+        for (let i = 0; i < animals.length; i++) {
+            if(animals[i].name === animal.name) {
+                return null;
+            }
+        }
+        animals.push(animal);
+    }
+}
 /**
  * You did it! You're all done with Matchy!
  */
