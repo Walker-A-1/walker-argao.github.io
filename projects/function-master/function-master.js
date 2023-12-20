@@ -1,32 +1,72 @@
 //////////////////////////////////////////////////////////////////////
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//object is an Object
 function objectValues(object) {
-
+    //make a storage Array
+    let strg = []
+    //make a for in loop to iterate over the input object Array
+    for (let key in object) {
+        //push the currect keyed value to the storage Array
+        strg.push(object[key]);
+    }
+    //return the storage Array
+    return strg;
 } 
 
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//object is an object
 function keysToString(object) {
-
+    //make a storage Sting
+    let strg = '';
+    //make a for in loop iterate over object input
+    for (let key in object) {
+        //check if this is the first time we are assigning something to the storage String
+        if (strg === '') {
+            //if yes then assign this key to the storage string by itself
+            strg = key;
+        } else {
+          //else concatinate this key to the storage string. itself + new key
+            strg += ` ${key}`;
+        }
+    }
+    //return String
+    return strg;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 3 - Values to String /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//object is an Object
 function valuesToString(object) {
-    
+    //make a storage String
+    let strg = '';
+    //make a for in loop. iterate over object
+    for (let key in object) {
+        //check if storage String is empty
+        if (strg === '') {
+            //if so assign storage string to the currect keyed value
+            strg = object[key];
+        //make sure there is not a stray Object inside the object input for some reason
+        } else if(typeof object[key] === 'string') {
+                //else concatinate the storage string with itself, a space, and the current keyed value
+                strg += ` ${object[key]}`;
+        }
+    }
+    //return the storage string
+    return strg;
 }
-
+//arrayOrObject() : Should take one argument and return 'array' if its an array and 'object' if its an object
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//collection is either an Array or an Object
 function arrayOrObject(collection) {
+    //use isArray method 
+    //if true then return 'array'
+    //if false then return 'object'
     
 }
 
