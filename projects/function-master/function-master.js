@@ -58,7 +58,6 @@ function valuesToString(object) {
     //return the storage string
     return strg;
 }
-//arrayOrObject() : Should take one argument and return 'array' if its an array and 'object' if its an object
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -67,39 +66,89 @@ function arrayOrObject(collection) {
     //use isArray method 
     //if true then return 'array'
     //if false then return 'object'
-    
-}
+    return Array.isArray(collection) === true ? 'array': 'object';
+}// check it out! just one line of code!
 
 //////////////////////////////////////////////////////////////////////
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//string is a String
 function capitalizeWord(string) {
-    
+    //make a storage string
+    let strg = ''
+    //take the first letter of the string input.
+    //capitalize it
+    //assign it to the storage String
+    strg = string[0].toUpperCase();
+    //get the whole string exept the first letter (use .slice(1, string.length);).
+    //concatinate that to the storage String 
+    strg += string.slice(1, string.length);
+    //return the storage string
+    return strg;
 }
-
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//string is a Sting of words
 function capitalizeAllWords(string) {
-    
+    //make a storage Array to house the words before we change them
+    let storArr = []
+    //make a storage Sting to house the finished product
+    let finStr = '';
+    //split the string words up by spaces " "
+    //assign those words to the storage Array
+    storArr = string.split(" ");
+    //make a for loop, iterate over the storage Array
+    for (let i = 0; i < storArr.length; i++) {
+        //make a storage string. For the current word product
+        let curWord = '';
+        //get the first letter of the current indexed string
+        //capitalize it and assign it to the storage String
+        curWord = storArr[i][0].toUpperCase();
+        //slice off the rest of the currect indexed string
+        //concatinate it to the storage string
+        curWord += storArr[i].slice(1, storArr[i].length);
+        //check if the finished product String is empty
+        if (finStr === '') {
+            //if yes then assign the for loop string to the finished product string
+            finStr = curWord;
+        } else {
+            //else concatinate the for loop string to the finished product string WITH a space before it
+            finStr += ` ${curWord}`;
+        }
+    }
+    //return the finished product string
+    return finStr;
 }
-
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Also capitalize the first letter
+//object is an Object. with a `name` property somewhere in there
 function welcomeMessage(object) {
-
+    //make a storage string. for the word with first letter capitalized
+    let stor = '';
+    //get the first letter of the objects name property value
+    //assign it the the storage String Capitalized
+    stor = object.name[0].toUpperCase();
+    //get the rest of the object name properties value
+    //slice off the string minus the first letter
+    //concatinate it to the storage String
+    stor += object.name.slice(1, object.name.length);
+    //return `Welcome ${storage String}!`
+    return `Welcome ${stor}!`;
 }
-
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+//profileInfo() : Should take an object with a name an a species and return '<Name> is a <Species>'
 
+//object is an Object, with a name property and a species property
 function profileInfo(object) {
-
+    //make two storage Strings. one for the Name and one for the Species
+    
+    //assign 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -166,6 +215,21 @@ function dedup(array) {
 
 }
 
+
+// Helper function
+//take a string parameter. return the same string but with the first lettre capitalized
+function firstUpperCase(string) {
+    //make a storage string
+
+    //get the first letter of the string input. Capitalize it
+    //and assign it to the storage string
+
+    //get the rest of the string. Without the first letter
+    //concatinate it to the storage string
+
+    //return the storage string
+}
+console.log(firstUpperCase('walker'))
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
