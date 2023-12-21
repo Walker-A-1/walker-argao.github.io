@@ -1,6 +1,9 @@
 //////////////////////////////////////////////////////////////////////
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+
+//const { should } = require("chai");
+
 //object is an Object
 function objectValues(object) {
     //make a storage Array
@@ -182,7 +185,6 @@ function maybeNoises(object) {
         return stor;
     }
 }
-console.log(maybeNoises({}));
 
 //maybeNoises({noises:["bark", "woof", "squeak","growl"]}), "bark woof squeak growl"
 //console.log(`"${maybeNoises({noises:["bark", "woof", "squeak","growl"]})}" should equal "bark woof squeak growl"`);
@@ -206,27 +208,95 @@ assert.strictEqual(hasWord(data, "turtle"), false);*/
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//name is a string of the friend you wish to add
+//object has a property of `friends` with an array
 function addFriend (name, object) {
-
+    //add the name String input to the end of the object friends property arrray value
+    object.friends.push(name);
+    //return the object
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//name is a String of a friend name we are searching for
+//object has a friends property with an Array of Strings
 function isFriend(name, object) {
-
+    //if there is no object.friends Array. return false
+    if(object.friends === undefined) {
+        return false;
+    }
+    //make a for loop. iterate through object.friends Array
+    for (let i = 0; i < object.friends.length; i++) {
+        //if name input is strictly equal to object.friends current indexed value
+        //return true
+        if (name === object.friends[i]) {
+            return true;
+        }
+    }
+    //return false
+    return false;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+/*
+nonFriends() : Should take a name and a list of people, 
+and return a list of all the names that <name> is not friends with
+*///keep in mind the isFriend() function
 
+/**INSTRUCTIONS
+ * 
+ * loop through all of the array object value:
+ *  check if the name property does NOT match our name input
+ *  check if the name property does NOT match any of the friends in our input friends property
+ *      If those checks pass push the current name property to the storage array
+ * then return the storage array
+ */
+
+//name is a string 
+//array is an Array of people Objects
 function nonFriends(name, array) {
-
+    //make a storage Array
+    let stor = []
+    //loop through input array values
+    for (let i = 0; i < array.length; i++) {
+        //check if the current object.name does NOT match our input name
+        if(array[i].name !== name) {
+            //make a memory boolean. assigned to true
+            let mem = true;
+            //loop through the friends array of the current object
+            for (let a = 0; a < array[i].friends.length; a++) {
+                //check if one of the current value of the friends Array matches our name input
+                if (name === array[i].friends[a]) {
+                    //if so assign the memory boolean to false;
+                    mem = false;
+                }
+            }
+             //if memory holds true. push the current array[i].name to the storage array
+             if (mem) {
+                stor.push(array[i].name);
+             }
+        }
+    }
+    return stor;
 }
-
+/*
+var data = [
+    {name: "Jimmy", friends:["Sara", "Liza"]},
+    {name: "Bob", friends:[]},
+    {name: "Liza", friends: ["Jimmy"]},
+    {name: "Sara", friends: ["Jimmy"]}
+  ];
+ // assert.deepEqual(nonFriends("Jimmy", data), ["Bob"]);
+ // assert.deepEqual(nonFriends("Bob", data), ["Jimmy", "Liza", "Sara"]);
+ // assert.deepEqual(nonFriends("Sara", data), ["Bob","Liza"]);
+ console.log(`${nonFriends('Jimmy', data)} should equal ['Bob']`);
+ console.log(`${nonFriends('Bob', data)} should equal ['Jimmy', 'Liza', 'Sara']`);
+ console.log(`${nonFriends('Sara', data)} should equal ['Bob','Liza']`);
+ */
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
