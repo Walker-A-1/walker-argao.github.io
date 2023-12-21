@@ -142,31 +142,67 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-//profileInfo() : Should take an object with a name an a species and return '<Name> is a <Species>'
 
 //object is an Object, with a name property and a species property
 function profileInfo(object) {
-    //make two storage Strings. one for the Name and one for the Species
-    
-    //assign 
+    //return '<Name> is a <Species>'
+    //where Name and Species are the property values of the object
+    //But with the first letter capitalized
+    return `${capitalizeWord(object.name)} is a ${capitalizeWord(object.species)}`;
 }
-
+//use this capitalizeWord(string)
+//Another one liner! get wrecked
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//object has a property called `noises`
+//may not have any noise elements.
 function maybeNoises(object) {
-
+    //check if the object noises property is empty
+    if (object.noises === undefined) {
+        //if yes return the same string as above
+        return 'there are no noises';
+    } else if (object.noises.length === 0) {
+        //if yes then return 'there are no noises'
+        return 'there are no noises';
+    //also check if there is no noises property at all
+    } else {
+        //else make a storage String for final product
+        //initialize it with the first item in the object noises array
+        let stor = object.noises[0];
+        //make a for loop. iterate over the object noises property
+        //and start at index 1
+        for (let i = 1; i < object.noises.length; i++) {
+            //concatinate the current object noises array index item. to the storage String
+            //with a space before it
+            stor += " " + object.noises[i];
+        }
+        //return the storage string 
+        return stor;
+    }
 }
+console.log(maybeNoises({}));
 
+//maybeNoises({noises:["bark", "woof", "squeak","growl"]}), "bark woof squeak growl"
+//console.log(`"${maybeNoises({noises:["bark", "woof", "squeak","growl"]})}" should equal "bark woof squeak growl"`);
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+/*
+hasWord() : Should take a string of words and a word and return true
+ if <word> is in <string of words>, otherwise return false.
+*/
 function hasWord(string, word) {
-
+    //I understand what the assignment is trying to teach me. So I am just gonna use the includes method
+    return string.includes(word);
 }
-
+//var data = "This is a super awesome string of words";
+/*assert.strictEqual(hasWord(data, "awesome"), true);
+assert.strictEqual(hasWord(data, "words"), true);
+assert.strictEqual(hasWord(data, "turtle"), false);*/
+//console.log(hasWord(data, "awesome"), hasWord(data, "turtle"))
+//console.log(true, false);
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -215,21 +251,6 @@ function dedup(array) {
 
 }
 
-
-// Helper function
-//take a string parameter. return the same string but with the first lettre capitalized
-function firstUpperCase(string) {
-    //make a storage string
-
-    //get the first letter of the string input. Capitalize it
-    //and assign it to the storage string
-
-    //get the rest of the string. Without the first letter
-    //concatinate it to the storage string
-
-    //return the storage string
-}
-console.log(firstUpperCase('walker'))
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
