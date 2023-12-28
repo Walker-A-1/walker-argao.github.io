@@ -297,30 +297,78 @@ var data = [
  console.log(`${nonFriends('Bob', data)} should equal ['Jimmy', 'Liza', 'Sara']`);
  console.log(`${nonFriends('Sara', data)} should equal ['Bob','Liza']`);
  */
+
+ /**
+  * "updateObject() : Should take an object, a key and a value. 
+  * Should update the property <key> on <object> with new <value>. 
+  * If <key> does not exist on <object> create it."
+  */
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//parameters are all self explanitory
 function updateObject(object, key, value) {
-
+    //assign the key-value pair to the object.
+    //it should have the same affect wether the key-value pair previously exist or not.
+    object[key] = value;
+    //I guess we need a return statement to actually mutate the object.
+    return object;
 }
-
+//var data = {a: "one", b: "two", "hokey": false};
+//console.log((updateObject(data, "b", "three"), {a:"one", b:"three", hokey: false}));
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+/**
+ * "removeProperties() : Should take an object and an array of strings. Should remove any properties on <object> that are listed in <array>", function(assert){
+  
+ */
 function removeProperties(object, array) {
-
+    //make a for loop. iterate over the input array
+    for (let i = 0; i < array.length; i++) {
+        //remove object keys that share the name with current array index.
+        delete object[array[i]];
+    }
+    //return the input object.
+    return object;
 }
-
+// var data = {a: "one", b: "two", "hokey": false};
+// console.log(removeProperties(data, ["a","hokey"]));
+// console.log((data, {b: "two"}));
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//"dedup() : Should take an array and return an array with all the duplicates removed"
 function dedup(array) {
-
+    //create a storage Array
+    let stor = [];
+    //make a for loop to iterate through the input Array with i
+    for (let i = 0; i < array.length; i++) {
+        //make a memory boolean with the initialized value of true
+        let mem = true;
+        //make a for loop to iterate through the storage Array with ia
+        for (let ia = 0; ia < stor.length; i++) {
+            //check if the current INPUT element is equal to the current storage element.
+            if(array[i] === stor[ia]) {
+            //if yes than set the memory boolean to false
+            //else do nothing
+            mem = false;
+            }
+        }
+        //if the memory boolean holds true
+        //than push the current INPUT element to the storage Array
+        if(mem) {
+            stor.push(array[i]);
+        }
+    }
+    //return the storage Array
+    return stor;
 }
 
+      var arrayOne = [1,2,2,2,3,4,5,5,5,5,"a","b","b","b","c"];
+      var arrayTwo = ["hello", "hello", "hello", "hello", "hello", "world", "hello", "world", "world", "world"];
+      console.log(dedup(arrayOne), [1,2,3,4,5,"a","b","c"]);
+      console.log(dedup(arrayTwo), ["hello", "world"]);
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
