@@ -347,7 +347,7 @@ function dedup(array) {
         //make a memory boolean with the initialized value of true
         let mem = true;
         //make a for loop to iterate through the storage Array with ia
-        for (let ia = 0; ia < stor.length; i++) {
+        for (let ia = 0; ia < stor.length; ia++) {
             //check if the current INPUT element is equal to the current storage element.
             if(array[i] === stor[ia]) {
             //if yes than set the memory boolean to false
@@ -365,10 +365,10 @@ function dedup(array) {
     return stor;
 }
 
-      var arrayOne = [1,2,2,2,3,4,5,5,5,5,"a","b","b","b","c"];
-      var arrayTwo = ["hello", "hello", "hello", "hello", "hello", "world", "hello", "world", "world", "world"];
-      console.log(dedup(arrayOne), [1,2,3,4,5,"a","b","c"]);
-      console.log(dedup(arrayTwo), ["hello", "world"]);
+    //   var arrayOne = [1,2,2,2,3,4,5,5,5,5,"a","b","b","b","c"];
+    //   var arrayTwo = ["hello", "hello", "hello", "hello", "hello", "world", "hello", "world", "world", "world"];
+    //   console.log(dedup(arrayOne), [1,2,3,4,5,"a","b","c"]);
+    //   console.log(dedup(arrayTwo), ["hello", "world"]);
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
