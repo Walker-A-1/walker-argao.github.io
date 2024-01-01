@@ -13,7 +13,7 @@
  * 3. Comparison Operators: Comparison operators are used to compare two values to see if they are different of the same/similar.
  * They will return true or false.
  * 
- * 4. Logical Operators:
+ * 4. Logical Operators: Logical operators take one or two expressions that resolve to a boolean value and produce one logical boolean value.
  * 
  * 5. Unary Operators (!, typeOf, -):
  * 
