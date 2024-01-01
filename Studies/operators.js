@@ -13,11 +13,13 @@
  * 3. Comparison Operators: Comparison operators are used to compare two values to see if they are different of the same/similar.
  * They will return true or false.
  * 
- * 4. Logical Operators: Logical operators take one or two expressions that resolve to a boolean value and produce one logical boolean value.
+ * 4. Logical Operators: Logical operators take one or two expressions and resolve to a boolean value and produce one logical boolean value.
  * 
- * 5. Unary Operators (!, typeOf, -):
+ * 5. Unary Operators: Unary Operators are operators that take only one operand, either on the right or left. Typically used as shorthand, unary operators are
+ * more effecient than other operators.
  * 
- * 6. Ternary 0perator (a ? b : c):
+ * 6. Ternary 0perator (a ? b : c): The Ternary Operator is like shorthand for an if statment. It takes Three operands. It will return the second operand if the first is true.
+ * and return the third operator if the first resolves to false.
  * 
  * 
  */
@@ -81,13 +83,41 @@ console.log("1" === 1);//prints false
 console.log(1 === 1);//prints true
 
 //4. Logical operators
-//explain example code
-//example code of &&, ||, !
+//first example shows the logical AND operator. It only returns true if both of its operands are true
+//second example shows off the logical Or operator. It returns true if either right or left operand is true
+//third example is the bang or not operator. It (UNO) reverses the boolean value to its right
+console.log(true && true);//prints true
+console.log(true && false);//prints false
+
+console.log(false || true);//prints true
+console.log(false || false);//prints false
+
+console.log(!true);//prints false
+console.log(!false);//prints true
 
 //5. Unary Operators
-//explain example code
-//example code +, typeOf, -
+//first example is the Bitwise not. It takes a value to the right, converts it to a number, adds one, and multiplies it by -1. -(x + 1)
+//second example is the Void operator. It takes a value to the right, and returns undefined. That sounds useless, if you know something I don't pls share.
+//third example is the typeOf operator. It will read the values type and return it as a string. It can not differenciate between a object and an array, returns 'object' for both
+//forth example is the delete operator. It can delete a property from an object placed after it.
+//example code void, typeOf, delete, ~
+//Bitwise NOT
+console.log(~3);//prints -4
+console.log(~-3);//prints 2
+console.log(~true);//prints -2
+console.log(~"3.14");//prints -4
+
+var wholeFunction = function() {return 4};
+console.log(void wholeFunction());//prints undefined... no matter what you put into it
+
+console.log(typeof "flkjfkjl");//prints "string"
+console.log(typeof 1);//prints "number"
+
+var boolllll = {first: 'one', "infinity!": infinity, second: 'two'};
+delete boolllll["infinity!"];
+console.log(boolllll);//prints [object Object] {first: "one", second: "two"}
 
 //6. Ternary Operators
-//explain example code
-//example code a ? b : c
+//This is a very basic example to illustrate how the ternary operator works. 
+console.log(true ? "it was true" : "it was false");//prints "it was true".
+console.log(false ? "it was true" : "it was false");//prints "it was false".
