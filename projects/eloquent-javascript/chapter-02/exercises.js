@@ -13,8 +13,12 @@
 #####
 ######
  */
-function triangles() {
-
+function triangles(n) {
+  //make a for loop to console log all of the triangle levels individualy. start at 1. end after n. step by 1:
+    for(let step = 1; step <= n; step++) {
+      //log hashtag(s) to the console based on what step we are on
+      console.log("#".repeat(step));
+    }
 }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
@@ -28,7 +32,7 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 //draw chessboard also takes a number parameter of `n`
-//that decides how many characters long (horizontal) the chessboard will be
+//that decides how many characters high and long the chessboard will be
 //constraint only use one console.log
 //example drawChessboard(4) {} =>
 /*
@@ -36,12 +40,16 @@ function fizzBuzz() {
  # # #
 # # # 
  # # #
-# # # 
  */
-function drawChessboard() {
+function drawChessboard(n) {
+  //make a storage function called `odd`
+    //assign it a function that will 
+
+  //make a storage function called `even`
 
 }
-
+console.log(`return statement of 2 ${drawChessboard(2)}`);
+console.log(`return statement of 5 ${drawChessboard(5)}`);
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
