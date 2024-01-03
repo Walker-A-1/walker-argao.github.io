@@ -43,13 +43,29 @@ function fizzBuzz() {
  */
 function drawChessboard(n) {
   //make a storage function called `odd`
-    //assign it a function that will 
+    //assign it a for loop that will draw the first chess board
+    //for loop. start num at 1, end after n, step 1
+  let odd = '';
+    for (let num = 1; num <= n; num++) {
+      //check if num is even
+      if (num % 2 === 0) {     
+        //if num is even then push a space" " to the storage function
+        odd += ' ';
+      } else {
+        //if num is odd then push a hashtag to the storage funciton
+        odd += '#';
+      }
+    }
+  return odd;
 
-  //make a storage function called `even`
+  //make a storage string called `even`
+
+  //make a result string
+    
 
 }
-console.log(`return statement of 2 ${drawChessboard(2)}`);
-console.log(`return statement of 5 ${drawChessboard(5)}`);
+console.log(`return statement of 4 ${drawChessboard(4)}`);
+console.log(`return statement of 9 ${drawChessboard(9)}`);
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
