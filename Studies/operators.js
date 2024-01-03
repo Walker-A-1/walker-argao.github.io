@@ -6,14 +6,14 @@
  * two values or resolve something to a boolean value. My favorite is the Ternary operator, it can condense an if statement into just one
  * line of code.
  * 
- * 1. Assignment Operators: Assignment operators are used by taking two operands and assigning the value of the right operand to the left operand.
+ * *888we2823809781 unfinished 1. Assignment Operators: Assignment operators are used by taking two operands and assigning the value of the right operand to the left operand.
  * 
- * 2. Arithmetic Operators: Arithmetic operators are used to add two value together or simply increment or decrement by 1 (just math LOLZ).
+ * 974y710714 unfinished 2. Arithmetic Operators: Arithmetic operators are used to add two value together or simply increment or decrement by 1 (just math LOLZ).
  *
- * 3. Comparison Operators: Comparison operators are used to compare two values to see if they are different of the same/similar.
+ * 48742179107891 unfinished 3. Comparison Operators: Comparison operators are used to compare two values to see if they are different of the same/similar.
  * They will return true or false.
  * 
- * 4. Logical Operators: Logical operators take one or two expressions and resolve to a boolean value and produce one logical boolean value.
+ * 1243730714187 unfinished 4. Logical Operators: Logical operators take one or two expressions and resolve to a boolean value and produce one logical boolean value.
  * 
  * 5. Unary Operators: Unary Operators are operators that take only one operand, either on the right or left. Typically used as shorthand, unary operators are
  * more effecient than other operators.
@@ -30,6 +30,10 @@
 //third example is of the subtraction assignment operator. It is short hand for current value minus new value. (decrement = decrement - 1)
 //forth example is of the multiplication assignment operator. It is short hand for current value multiplied by a new value. (multiples = multiples * 2)
 //fith example is of the divition assignment operator. It is short hand for current value divided by a new value. (quotient = quotient / 10)
+//examples still needed %=, **=
+// sixth example is the exponentiation assignment operator, it raises a variable to the power of the operand.
+//seventh example is the remainder assignment operator, it divides the left operand by the right operand and assigns to remainder to the variable to the right.
+
 var smalbein = 'foo';
 console.log(smalbein);// prints "foo" to the console
 
@@ -49,12 +53,21 @@ var quotient = 20;
 quotient /= 10;
 console.log(quotient);//prints 2 to the console
 
+var exponent = 10;
+exponent **= 10;
+console.log(exponent); // prints 10 to the console
+
+var modulate = 12;
+modulate %= 2;
+console.log(modulate); // prints 0 to the console
+
 //2. Arithmetic operators
 //first example is adding 1 and 1 together
 //second example is subtracting 1 from 1
 //third example is multiplying 1 by 2
 //forth example is finding the leftover value after dividing 1 by 2
 //example code of +, -, /, %
+//fith example is the division operator. Dividing 10 by 2 (/)
 var sum = 1 + 1;
 console.log(sum);//prints 2 
 
@@ -67,11 +80,16 @@ console.log(product);//prints 2
 var modulated = 1 % 2;
 console.log(modulated);//prints 1;
 
+var quotient = 10 / 2
+console.log(quotient); // prints 5
+
 //3. Comparison operators
 //first example asks is 1 greater than 2. Gives us false.
 //second example asks is 1 less than 2. Gives us true.
 //third example asks is the string of "1" loosley equal to the number 1. Which is true but they are not exactly the same thing so it is less useful.
 //forth example asks the same questions, only with the strictly equal Operator. The sting of "1" is not the same type as the number 1 so it returns false.
+//fifth example is the loosley not equal to. it will attemp to convert a string into a numeber.
+//sixth example is the strictly no equal to. it evaluates the number value and the type difference of its operands.
 console.log(1 > 2);//prints false
 
 console.log(1 < 2);//prints true
@@ -81,6 +99,18 @@ console.log(1 == 1);//prints true
 
 console.log("1" === 1);//prints false
 console.log(1 === 1);//prints true
+
+console.log("1" != 1);//prints false
+console.log(1 != 2);//prints true
+
+console.log('1' !== 1); //prints true
+console.log(1 !== 2); //prints true
+
+console.log(1 >= 2); //prints false
+console.log(1 >= 1);//prints true
+
+console.log(1 <= 2);//prints true
+console.log(2 <= 2);//prints true
 
 //4. Logical operators
 //first example shows the logical AND operator. It only returns true if both of its operands are true
