@@ -25,9 +25,27 @@ function triangles(n) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function fizzBuzz() {
-  
+  //make a for loop to iterate 1 to 100, or an input number
+  for (let n = 1; n <= 15; n++) {
+    //check if current number is divisible by three and five
+    if(n % 3 === 0 && n % 5 === 0) {
+      //if yes then print `FizzBuzz` to the console
+      console.log("fizzbuzz");
+    //else check if the number is divisible by 5
+    } else if(n % 5 === 0) {
+      //if yes then print `Buzz`
+      console.log("buzz");
+    //else check if the number is divisible by 3
+    } else if(n % 3 === 0) {
+      //if yes then print Fizz 
+      console.log('fizz');
+    } else {
+          //else print the current number to the console
+      console.log(n);
+    }
+  }
+  return '';
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -94,8 +112,6 @@ function drawChessboard(n) {
   console.log(result + `\n`);
 
 }
-console.log(`return statement of 4 ${drawChessboard(4)}`);
-console.log(`return statement of 9 ${drawChessboard(9)}`);
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
