@@ -3,6 +3,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+//const { result } = require("lodash");////////////This was not originally commented out. If more probelms arise 
+
 var _ = {};
 
 
@@ -20,7 +22,7 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
-
+_.identity = (value) => value;
 
 /** _.typeOf
 * Arguments:
@@ -29,19 +31,33 @@ var _ = {};
 *   1) Return the type of <value> as a string
 *       Types are one of:
 *          - "string"
-*          - "array"
+*         E - "array"
 *          - "object"
 *          - "undefined"
 *          - "number"
 *          - "boolean"
-*          - "null"
+*         E - "null"
 *          - "function"
 * Examples:
 * _.typeOf(134) -> "number"
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-
+//rely on the real typeof method and handle for Arrays and Null
+_.typeOf = (value) => {
+    //check is value is an Array
+    if(Array.isArray(value)) {
+        //return "array"
+        return 'array';
+        }
+    //check if value is equal to `null`
+    if(value === null) {
+        //return "null"
+        return 'null'
+    }
+    //return the type of the value
+    return typeof(value);
+}
 
 /** _.first
 * Arguments:
@@ -53,14 +69,42 @@ var _ = {};
 *   3) Otherwise, return the first <number> items of <array>
 * Edge Cases:
 *   1) What if <number> is negative?
+// then return []
 *   2) What if <number> is greater than <array>.length?
+// then return the whole Array
 * Examples:
 *   _.first("ponies", 1) -> []
 *   _.first(["a", "b", "c"], "ponies") -> "a"
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
-
+_.first = (array, number) => {
+    //if <array> is not an Array or if <number> is negative
+    if(!Array.isArray(array) && number < -1) {
+        //return empty Array
+        return [];
+    }
+    //if <number> is equal to undefined
+    if(number === undefined) {
+        //return the first element in the <array>
+        return array[0];
+    }
+    //if <number> is greater than <array>.length then
+    if(number > array.length) {
+        //return the whole <array>
+        return array;
+    }
+    //make a result variable initialized as an empty Array
+    let result = [];
+    //make a for loop to iterate through <array>
+    //start at 1, end at <array>.length, step 1
+    for(let n = 1; n <= array.length; n++) {
+        //push the current <array> elemet to the result Array
+        result.push(array[n]);
+    }
+    //return result
+    return result;
+}
 
 /** _.last
 * Arguments:
