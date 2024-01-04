@@ -1,33 +1,64 @@
 ////////////////////////////////////////////////////////////////////////////////
 // min /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function min() {
-
+//min takes two numbers and returns the smaller one
+function min(x, y) {
+  //do the thing listed above.
+  return x > y ? y : x;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // isEven //////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function isEven() {
-
+//accepts one number as argument
+//returns true if number is even, false otherwise
+function isEven(num) {
+  //check for negative number
+  if (num < 0) {
+    //if num is negetive then multiply it by -1
+    num *= -1;
+  }
+  //check if num divided by 2 is zero
+  //return the boolean value
+  return num % 2 === 0;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function countChars() {
-
+// it wants me to make a function that takes a string and a character as parameters. 
+//counts the number of occurences of that character and returns that number.
+function countChars(string, char) {
+  // make a storage variable initialized at 0
+  let stor = 0;
+  //make a for loop to loop through the indexes of the input String
+  for (let i = 0; i < string.length; i++) {
+    //if current string index is equal to input character then
+    if (string[i] == char) {
+      //then add 1 to the storage variable
+    stor ++;
+    }
+  }
+  return stor;
 }
-
+console.log(countChars('fsahjlknewfwefsc', 'w'));
 ////////////////////////////////////////////////////////////////////////////////
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function countBs() {
-
+//takes a string as only argument. returns a number equal to the amount of `B`s
+function countBs(string) {
+  //make a storage variable initialized at 0
+  let stor = 0
+  //make for loop to iterate through the input Sting characters
+  for(let i = 0; i < string.length; i++) {
+    //if current String index is equal to `B` then
+    if(string[i] === 'B') {
+      //add one to the storage variable
+      stor += 1;
+    }
+  }
+  //return storage variable
+  return stor;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
