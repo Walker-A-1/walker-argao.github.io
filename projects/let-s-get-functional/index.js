@@ -20,18 +20,117 @@ var _ = require(/* Replace this with the name of your lodown! */);
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
-
+//param: array
+//objective: take an array of customers and return the number of customers with a penis (male)
+//constrait: use the filter method
 var maleCount = function(array) {
+    //make a result variable
+    //assign result to the value of the filter method called on the <array>
+    const result = array.filter((sex) => sex === 'male');
+    //return the length of result array
+    return result.length;
+};                  //tested myself. seems to work
 
+var femaleCount = (array) => {
+    //make storage array
+    let storage = []
+    //make for loop for <array>
+    for (let i = 0; i < array.length; i++) {
+        //if element is equal to 'female' then 
+        if (array[i] === 'female') {
+            //push 1 to storage array
+            storage.push(1);
+        }
+    }
+    //make a result variable
+    //initialize it with
+        //use reduce method on storage 
+    let result = storage.reduce(
+        (total, current) => total + current
+    );
+
+    //return result variable
+    return result;
+};//                                        Tested by Walker 
+
+//should go through an array of customers and return the oldest customers name
+var oldestCustomer = (array) => {
+    //make a mutable storage variable
+    //initialize with first element in array
+    let stor = array[0];
+    //for loop for <array>
+    //start at 1 but still for indexes
+    for(let i = 1; i < array.length; i++) {
+        //check if the current objects age is greater than the age of the storage variable
+        if(array[i]["age"] > stor["age"]) {
+            //then assign storage variable to the current element
+            stor = array[i];
+        }
+    }
+    //return the name value of the storage variable
+    return stor["name"];
 };
 
-var femaleCount;
+var youngestCustomer = (array) => {
+    //make a mutable storage variable
+    //initialize with first element in array
+    let stor = array[0];
+    //for loop for <array>
+    //start at 1 but still for indexes
+    for(let i = 1; i < array.length; i++) {
+        //check if the current objects age is less than the age of the storage variable
+        if(array[i]["age"] < stor["age"]) {
+            //then assign storage variable to the current element
+            stor = array[i];
+        }
+    }
+    //return the name value of the storage variable
+    return stor["name"];
+};
 
-var oldestCustomer;
+var averageBalance = (array) => {
+    //make a collection array
+    let collection = []
+    //for loop for <array>
+    for (let i = 0; i < array.length; i++) {
+        //1. get the balance value of element
+        //2. use stringToNumber function to convert the string to a number we can use in arithmatic
+        //4. add to collection array
+        collection.push(stringToNumber(array[i]["balance"]));
+    }
+    //make an imutable num variable
+        //initialized wiht the length of the collection array
+    const num = collection.length;
+    //return below
+        // reduce the collection array to one value
+            //divide above result by num variable
+    return collection.reduce((total, current) => total + current) / num / 100;
+};
+  //make a conversion helper function
+  //this function should take a string with dollar signs and periods 
+  function stringToNumber(string) {
+      //make a storage string
+      let stor = "";
+      //remove any characters that are not numbers
+      //make a for loop for <string>
+      for(let i = 0; i < string.length; i++) {
+        //if current element is a number string (isNum)
+        if(isNum(string[i])) {
+          //concat current element to storage string
+          stor += string[i];
+        }
+      }
+    //return the string converted to a number
+    return Number(stor);
 
-var youngestCustomer;
-
-var averageBalance;
+  }
+//make a helper function that confirms that returns true if the input it not a $ of , or .
+function isNum(x) {
+  if(x === '$' || x === ',' || x === '.') {
+    return false;
+  }
+  return true;
+}
 
 var firstLetterCount;
 
