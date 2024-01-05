@@ -266,10 +266,42 @@ _.each = (collection, func) => {
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
-_.unique = array => {
-    
+_.unique = array => { ////////////////////////////////////This one took me two tries, but I got it on the second try without asking for help (outside of google). it is worth review.
+    //make the function called `only`
+    //takes an index and an array as parameters
+    let only = (index, array) => {
+        //check if result array first element is equal to undefined
+        if (result[0] === undefined) {
+            //if this is first time
+            //return (push current input element to result array)
+            return result.push(array[index]);
+        } else {
+        //else do below
+            //make a for loop for result array
+            //starts at 0, ends before result arrays length, step 1
+            for(let i = 0; i < result.length; i++) {
+                //check if current <array>[<index>] is equal to current indexed element of the result array
+                if(array[index] === result[i]) {
+                    //break for loop
+                    return;
+                }
+            }
+        }
+        //return (add current function input element to the result array)
+        return result.push(array[index]);
+    }
+    //make result array 
+    let result = []
+    //make a for loop for the <array> elements
+    for (let i = 0; i < array.length; i++) {
+        //call the only function with the parameters
+        //current index, <array>
+        only(i, array);
+    }
+    //return result array
+    return result;
 }
-console.log(_.unique([1,2,2,4,5,6,5,2]));
+
 /** _.filter
 * Arguments:
 *   1) An array
