@@ -80,7 +80,7 @@ _.typeOf = (value) => {
 */
 _.first = (array, number) => {
     //if <array> is not an Array or if <number> is negative
-    if(!Array.isArray(array) && number < -1) {
+    if(!Array.isArray(array) || number < -1) {
         //return empty Array
         return [];
     }
@@ -95,15 +95,15 @@ _.first = (array, number) => {
         return array;
     }
     //make a result variable initialized as an empty Array
-    let result = [];
+    let res = [];
     //make a for loop to iterate through <array>
-    //start at 1, end at <array>.length, step 1
-    for(let n = 1; n <= array.length; n++) {
+    //start at 0, end at number, step 1
+    for(let i = 0; i < number; i++) {
         //push the current <array> elemet to the result Array
-        result.push(array[n]);
+        res.push(array[i]);
     }
     //return result
-    return result;
+    return res;
 }
 
 /** _.last
@@ -123,25 +123,69 @@ _.first = (array, number) => {
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
-
+_.last = (array, number) => {
+    //check if the <number> is less than 0
+    if(number < 0) {
+        //then return an empty array
+        return []
+    }
+    //check if the <number> is greater than the <arrays> length
+    if(number > array.length) {
+        //then return <array>
+        return array;
+    }
+    //check if <array> is not an array
+    if(!Array.isArray(array)) {
+        //return an empty array
+        return []
+    }
+    //check if <number> is not given
+    //or if <number> is not a number
+    if(number === undefined || typeof number !== 'number') {
+        //then return the last element of <array>
+        return array[array.length - 1]
+    }
+    //make a storage array
+    let store = []
+    //make a decending for loop to count backwards in <array>
+    //count backwards as many times as <number> specifies
+    //start at the last index of <array>, stop at <array>s length minus number, step -1
+    for (let i = array.length - 1; i > array.length - number - 1; i--) {
+        //add the current index of <array> to the begenning storage variable
+        store.unshift(array[i]);
+    }
+    //return the storage array
+    return store;
+}
 
 /** _.indexOf
 * Arguments:
 *   1) An array
 *   2) A value
+Edge Cases:
+*   1) What if <array> has multiple occurances of val?
+*   2) What if <val> isn't in <array>?
 * Objectives:
 *   1) Return the index of <array> that is the first occurrance of <value>
 *   2) Return -1 if <value> is not in <array>
-*   3) Do not use [].indexOf()!
-* Edge Cases:
-*   1) What if <array> has multiple occurances of val?
-*   2) What if <val> isn't in <array>?
+* Constraint
+*   1) Do not use [].indexOf()!
 * Examples:
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
-
-
+_.indexOf = (array, value) => {
+    //make a for loop to find where <value> matchs the <array> index 
+    for(let i = 0; i < array.length; i++) {
+        //check if current <array> index value matches <value>
+        if (array[i] === value) {
+            //return current index (just `i`)
+            return i;
+        }
+    }
+    //return -1
+    return -1;
+}
 /** _.contains
 * Arguments:
 *   1) An array
@@ -149,14 +193,32 @@ _.first = (array, number) => {
 * Objectives:
 *   1) Return true if <array> contains <value>
 *   2) Return false otherwise
-*   3) You must use the ternary operator in your implementation.
+* Constraint
+*   1) You must use the ternary operator in your implementation.
 * Edge Cases:
 *   1) did you use === ?
 *   2) what if no <value> is given?
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-
+_.contains = (array, value) => {
+    //check if no value was given
+    if (value === undefined) {
+        //if so return false
+        return false;
+    }
+    //make a for loop to iterate through <array>
+    //start at 0, end before <array>s length, step 1
+    for (let i = 0; i < array.length; i++) {
+        //check if current <array> index value is equal to <value> 
+        if(array[i] === value) {
+            //if so then return true
+            return true;
+        }
+    }
+    //return false
+    return false;
+}
 
 /** _.each
 * Arguments:
@@ -173,7 +235,27 @@ _.first = (array, number) => {
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
-
+_.each = (collection, func) => {
+    //check if <collection> is an array
+    if (Array.isArray(collection)) {
+        //if so then 
+        //make a for loop to iterate through <collection> array
+        //start at 0, stop before <collection> length, step 1
+        for (let i = 0; i < collection.length; i++) {
+            //call <func> with arguments
+            //current <collection> index value, current index, <collection>
+            func(collection[i], i, collection);
+        }
+    } else {
+    //if collection is not an array then
+        //make a for in loop to iterate through <collection> object
+        for (let key in collection) {
+            //call <func> with these arguments
+            //current property value, the key, <collection>
+            func(collection[key], key, collection);
+        }
+    }
+}
 
 /** _.unique
 * Arguments:
@@ -184,8 +266,10 @@ _.first = (array, number) => {
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
-
-
+_.unique = array => {
+    
+}
+console.log(_.unique([1,2,2,4,5,6,5,2]));
 /** _.filter
 * Arguments:
 *   1) An array
