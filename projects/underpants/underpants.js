@@ -256,7 +256,7 @@ _.each = (collection, func) => {
         }
     }
 }
-
+//console.log(_.each(["a","b","c"], function(e,i,a){ console.log(e)}));// should be 'a' 'b' 'c'
 /** _.unique
 * Arguments:
 *   1) An array
@@ -316,8 +316,23 @@ _.unique = array => { ////////////////////////////////////This one took me two t
 *   _.filter([1,2,3,4,5], function(x){return x%2 === 0}) -> [2,4]
 * Extra Credit:
 *   use _.each in your implementation
+//this one accepts a collection and a function. return result of function for each element in <collection> array
 */
-
+_.filter = (array, func) => {////////////////I tried extra credit first. Problem was I could not get my own _.each function to work lol.
+    //make result array
+    let result = []
+    //make a for loop for <array>
+    for(let i = 0; i < array.length; i++) {
+        //check if calling <func> with current index returns true
+        if(func(array[i], i, array)) {
+            //if so then add the current <array> element to the result array
+            result.push(array[i]);
+        }
+    }
+    //return result array
+    return result;
+}
+//console.log(`${_.filter([1,2,3,4,5], function(x){return x%2 === 0})} should be [2, 4]`);
 
 /** _.reject
 * Arguments:
@@ -331,8 +346,21 @@ _.unique = array => { ////////////////////////////////////This one took me two t
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
-
-
+_.reject = (array, func) => {
+    //make result array
+    let result = []
+    //make a for loop for <array>
+    for(let i = 0; i < array.length; i++) {
+        //check if calling <func> with current index returns false
+        if(!func(array[i], i, array)) {
+            //if so then add the current <array> element to the result array
+            result.push(array[i]);
+        }
+    }
+    //return result array
+    return result;
+}
+//I copy pasted it. but it was my own code.
 /** _.partition
 * Arguments:
 *   1) An array
