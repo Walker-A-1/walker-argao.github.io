@@ -455,18 +455,7 @@ _.map = function(collection, func) {
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 _.pluck = (array, prop) => {
-    //make a storage array
-    
-    //make a for loop for <array>
-
-        //call _.map with
-        //<array>
-        //a function that iterates through an object and returns values of <prop>
-        //param: array[prop], prop, array
-
-
-    //return storage array
-
+    return _.map(array, function(E) {return E[prop]});
 }
 
 
@@ -491,31 +480,32 @@ _.pluck = (array, prop) => {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 //function takes two parameters, collection and function
-_.every = function() {
+_.every = function(list, func) {
 
-    //check if the function is falsey
+    //check if the function provided
     
-        //if yes then
-        //
+        //if function is provided then
+///////////////////////////////////////////////Redundunt
+            //check if the <list> is an Array
 
-        //if function is truthy then
-
-            //check if the collection is an Array
-
-                //if yes then make a for loop to iterate over the collection Array
+                //if yes then make a for loop to iterate over the <list> Array
                     
                     //call the callback function with these parameters
-                    //parameters are current element, it's index, <collection>
+                    //parameters are current element, it's index, <list>
 
                         //if the callback function returns false then return false
                         
-                //if not then call the callback function 
-                //parameters are current value, current key, <collection>
+                //if not an array then make a for in loop for <list>
+                //callback function with
+                //parameters are current value, current key, <list>
 
-                    
+                    //if callback equals false then return false
 
+                ////////////////////////////////since we need the above code two times lets just use the _.map bc it is the same thing
+                
+        //if function was not provided then
 
-    
+            //
     //return true
 }
 
