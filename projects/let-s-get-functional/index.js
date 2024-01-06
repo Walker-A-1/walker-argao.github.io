@@ -107,7 +107,7 @@ var averageBalance = (array) => {
     return collection.reduce((total, current) => total + current) / num / 100;
 };
   //make a conversion helper function
-  //this function should take a string with dollar signs and periods 
+  //this function should take a string with dollar signs and periods and return a number without special characters
   function stringToNumber(string) {
       //make a storage string
       let stor = "";
@@ -115,7 +115,7 @@ var averageBalance = (array) => {
       //make a for loop for <string>
       for(let i = 0; i < string.length; i++) {
         //if current element is a number string (isNum)
-        if(isNum(string[i])) {
+        if(notSpec(string[i])) {
           //concat current element to storage string
           stor += string[i];
         }
@@ -125,7 +125,7 @@ var averageBalance = (array) => {
 
   }
 //make a helper function that confirms that returns true if the input it not a $ of , or .
-function isNum(x) {
+function notSpec(x) {
   if(x === '$' || x === ',' || x === '.') {
     return false;
   }

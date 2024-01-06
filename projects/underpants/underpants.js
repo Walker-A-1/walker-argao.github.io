@@ -361,12 +361,13 @@ _.reject = (array, func) => {
     return result;
 }
 //I copy pasted it. but it was my own code.
+
 /** _.partition
 * Arguments:
 *   1) An array
 *   2) A function
 * Objectives:
-*   1) Call <function> for each element in <array> passing it the arguments:
+*   1) Call <function> for each element in <array> passing in the arguments:
 *       element, key, <array>
 *   2) Return an array that is made up of 2 sub arrays:
 *       0) An array that contains all the values for which <function> returned something truthy
@@ -379,7 +380,27 @@ _.reject = (array, func) => {
 *   }); -> [[2,4],[1,3,5]]
 }
 */
-
+_.partition = (array, func) => {
+    //make a result array
+    //initialized with two nested arrays
+    let result = [[],[]];
+    //make a for loop for <array>
+    for (let i = 0; i < array.length; i++) {
+        //check if the current element returns true when calling the callback funciton with
+        //current element, index, <array>
+        if(func(array[i], i, array)) {
+            //if returned true then 
+            //add element to the first sub array in result array
+            result[0].push(array[i]);
+        } else {
+            //if returned false 
+            //add element to the second sub array in result array
+            result[1].push(array[i]);
+        }
+    }
+    //return result array
+    return result;
+}   
 
 /** _.map
 * Arguments:
@@ -398,18 +419,28 @@ _.reject = (array, func) => {
 */
 _.map = function(collection, func) {
     //make storage Array
-
+    let stor = []
     //check if the collection input is an Array
-
-        //if yes then
+    if(Array.isArray(collection)) {
+        //if <collection> is array
         //make a for loop to iterate through the collection Array values
-
-            //call the input function and pass in the current collection index
+        for(let i = 0; i < collection.length; i++) {
+            //call the input function and pass in
+            //current element, index, <collection>
             //add the result to the end of the 
-        //if else then
+            stor.push(func(collection[i], i, collection));
+        } 
+    } else {
+        //if <collection> is not array then
         //make a for in loop to iterate through the collection key values 
-
-    
+        for (let key in collection) {
+            //callback function with
+            //current value, key, <collection>
+            stor.push(func(collection[key], key, collection));
+        }
+    }
+    //return storage array
+    return stor;
 }
 
 
@@ -423,6 +454,20 @@ _.map = function(collection, func) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+_.pluck = (array, prop) => {
+    //make a storage array
+    
+    //make a for loop for <array>
+
+        //call _.map with
+        //<array>
+        //a function that iterates through an object and returns values of <prop>
+        //param: array[prop], prop, array
+
+
+    //return storage array
+
+}
 
 
 /** _.every
