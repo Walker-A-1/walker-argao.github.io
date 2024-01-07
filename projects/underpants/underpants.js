@@ -635,15 +635,32 @@ _.some = function(list, func) {
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 _.reduce = (array, func, seed) => {
+    //make a storage variable
+    let stor;
     //check if a <seed> was given
-
-        //if <seed> was given
-
-            //
-
-        //if no <seed> was given
-
-}
+    if(seed !== undefined) {
+    //if <seed> was given
+        //assign the storage variable with callback function called with
+        //<seed>, <array>[0], 0
+        stor = func(seed, array[0], 0);
+    //if no seed was given then
+    //assign storage variable with the first element of <array>
+    } else {
+        stor = array[0];
+    }
+        //make a for loop for <array>
+        //start 1, end before <array>s length, step 1
+        for (let i = 1; i < array.length; i++) {
+            //callback function, Param 
+            //storage variable, <array>[i], i
+            //store the return of callback in storage function
+            stor = func(stor, array[i], i);
+        }
+        //return storage variable
+        return stor;
+}/////////////I was freaking out about recursive function last night (they are difficult for me)
+//then I took a step back, reviewed the basics, and gave up.
+//I played video games and went to bed. But I came back the next day and did it!
 
 /** _.extend
 * Arguments:
@@ -659,6 +676,31 @@ _.reduce = (array, func, seed) => {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+_.extend = (obj1, obj2, ...objs) => {
+    //make result object
+    //initialized with reference of <obj1>
+    let result = obj1;
+    //make a for In loop for <obj2> 
+    for(let key in obj2) {
+        //add properties from <obj2> to result object
+        result[key] = obj2[key];
+    }
+    //check if <...objs> was given
+    if (objs !== undefined)
+        //if yes then
+        //make a for loop for the <...objs> array
+        for(let i = 0; i < objs.length; i++) {
+            //make a for In loop for current object element
+            for(let key in objs[i]) {
+                //add current property to result object
+                result[key] = objs[i][key];
+            }
+        }
+
+
+    //return result object
+    return result;
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
