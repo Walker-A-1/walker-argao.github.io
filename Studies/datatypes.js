@@ -17,13 +17,19 @@
  * is the data contained.
  * 6. Functions are a way to store code instructions in a name and reuse them anytime. Functions can take in data called parameters when created
  * and called arguments when you call the function. Functions help us to not repeat ourselves makeing our code look cleaner and saving us time. 
- * Functions are called by their name followed by parenthesis with or without arguments inside.
- * 7. undefined
- * 8. null
- * 9. NaN
- * 10. Infinity and -Infinity
- * 11. Difference of simple and complex data types 
- * 12. Primitive values are passed to functions by copy and complex are passed by reference
+ * Functions are called by their name followed by parenthesis with or without arguments inside. Functions are entirly hoisted, this means you can 
+ * use them before they are defined.
+ * 7. undefined is a data type. You get undefined if you try to reference a variable or piece of data that does not exist currently. 
+ * undefined is falsey.
+ * 8. null represents the absense of values in an object. It is a primitive data type and it resolves to falsey
+ * 9. NaN stands for not a number. You get NaN when you try to perform arithmetic or other number operations on something that is not a number.
+ * 10. Infinity and -Infinity are both global properties that represent the number infinity. 
+ * 11. Difference of simple and complex data types is that simple data types are atomic they can not hold, collect, or aggregate other values, complex data types can!
+ * This also means simple data is of a definite size (no more than 8 bytes of memory), while complex data can hold other complex data so it can be an indefinite size.
+ * Simple data is copied by value but complex data is only copied by reference.
+ * 12. Primitive values are passed to functions by copy and complex are passed by reference. This is the same concept as the section above. The difference is 
+ * that we are trying to use simple and complex data in a function. Passing in simple data will create a copy and leave the original data untouched. Passing in a 
+ * complex piece of data will mutate the original.
  */
 
 //1. Numbers //
@@ -84,8 +90,74 @@ newObj["a"] = 'not one';
 console.log(object["a"]);//prints `not one`
 
 //6. Function//
-
+//I have initialized a function called `makeSide` and called it
+//makeSide has the side effect of printing something to the console. It does not resolve to a value when called
+//Last I have a function called `add5`, it takes a number, adds 5 and returns it.
+//I called this function before its initialization which is ok to do with function declarations 
 function makeSide() {
     console.log("hiii")//prints `hiii`
 }
 makeSide(); //has the side effect of printing `hiii` to the console. resolves to undefined
+console.log(add5(5));//prints 10
+function add5(x) {
+    return x + 5;
+}
+
+//7. undefined//
+//here I am trying to access the variable `theBestVariable`. it does not exist so it resolves to undefined. undefined is falsey so when testing for true or false
+//it resolves to false
+console.log(theBestVariable ? "this is true" : "this is false");// prints `this is false` because undefined is falsey
+
+//8. null//
+//Here I have a function that searches for vowels in an input string and returns the length of those vowels
+//null is different from undefined because it refers to the absence of data where an object is expected.
+function getVowels(str) {
+    const m = str.match(/[aeiou]/gi);
+    if (m === null) {
+      return 0;
+    }
+    return m.length;
+  }
+  console.log(getVowels('sky'));// Expected output: 0
+
+//9. NaN//
+//this code adds 2 to the string `barf` and tests if it is not a number
+console.log(isNaN(2 + 'barf'));// prints true
+
+//10. infinity//
+//this code demonstrats a fact of infinity. It is always resolved to infinity
+console.log(Infinity === Infinity - 1);//prints true
+
+//11. simple vs complex data
+//first we have an array called `arr`. It contains arrays inside array. 
+//This is okay, to prove that the next line asks if `arr` is a valid array
+
+//next I tried to copy the data of `arr` into `newArr`
+//I then mutated a value of `newArr`
+//when I called the value in the same spot from our first array we get the new mutated value
+let arr = [1, ['smaller', 2, ['smallest', 3]]];
+console.log(Array.isArray(arr)); //prints true
+
+newArr = arr;
+newArr[0] = 'because I said so';
+console.log(arr[0]);//prints `because I said so`
+
+//12. passing simple and complex data into a function
+//here we have a function that adds five to a simple number or a complex array
+
+//after that I initialize and call the function on `arre`. It is copied by refence and effects the original array without a return statement
+
+//last I call the function with the number five. Being a simple datatype it adds five to five and returns the result
+function mutateData(x) {
+    if(typeof x === 'object') {
+         x.push(5);
+    }
+    if(typeof x === 'number') {
+        return x + 5;
+    }
+}
+let arre = []
+mutateData(arre)
+console.log(arre);//prints [5]
+
+console.log(mutateData(5));// prints 5
