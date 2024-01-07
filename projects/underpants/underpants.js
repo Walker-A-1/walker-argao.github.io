@@ -482,32 +482,59 @@ _.pluck = (array, prop) => {
 //function takes two parameters, collection and function
 _.every = function(list, func) {
 
-    //check if the function provided
-    
-        //if function is provided then
-///////////////////////////////////////////////Redundunt
+    //check if <func> is a function
+    if(func instanceof Function) {
+        //if function is provided 
             //check if the <list> is an Array
-
+            if(Array.isArray(list)) {
                 //if yes then make a for loop to iterate over the <list> Array
-                    
+                for (let i = 0; i < list.length; i++) {
                     //call the callback function with these parameters
                     //parameters are current element, it's index, <list>
-
+                    if(!func(list[i], i, list)) {
                         //if the callback function returns false then return false
-                        
-                //if not an array then make a for in loop for <list>
+                        return false;
+                    }
+                }
+            } else {        
+                //if not an array then make a for IN loop for <list>
+                for (let key in list) {
                 //callback function with
                 //parameters are current value, current key, <list>
-
+                    if(!func(list[key], key, list)) {
                     //if callback equals false then return false
-
-                ////////////////////////////////since we need the above code two times lets just use the _.map bc it is the same thing
-                
+                        return false;
+                    }
+                }
+            }
+    } else {
         //if function was not provided then
 
-            //
+            //check if <list> is an Array
+            if(Array.isArray(list)) {
+                //if yes then make a for loop to iterate through <list> array
+                for (let i = 0; i < list.length; i++) {
+                    //if the current element is falsy then 
+                    if(!list[i]) {
+                        //return false
+                        return false;
+                    }
+                }
+            } else {
+                //if <list> is not an array then
+                    //make a for IN loop to iterate through <list> object
+                    for (let key in list) {
+                        //if any of the <list> values return falsy then
+                        //return false
+                        if(!list[key]) {
+                            return false;
+                        }
+                    }
+            }   
+    }                    
     //return true
-}
+    return true;
+}//////////////////////FIRST TRYYYYY!!!!!
 
 /** _.some
 * Arguments:
@@ -529,7 +556,65 @@ _.every = function(list, func) {
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+//I understand this one and you bet your ass I am going to copy paste it from the last one. 
+//We are in crunch time! all I need is to get those tests passing!
 
+//function takes two parameters, collection and function
+_.some = function(list, func) {
+
+    //check if <func> is a function
+    if(func instanceof Function) {
+        //if function is provided 
+            //check if the <list> is an Array
+            if(Array.isArray(list)) {
+                //if yes then make a for loop to iterate over the <list> Array
+                for (let i = 0; i < list.length; i++) {
+                    //call the callback function with these parameters
+                    //parameters are current element, it's index, <list>
+                    if(func(list[i], i, list)) {
+                        //if the callback function returns true then return true
+                        return true;
+                    }
+                }
+            } else {        
+                //if not an array then make a for IN loop for <list>
+                for (let key in list) {
+                //callback function with
+                //parameters are current value, current key, <list>
+                    if(func(list[key], key, list)) {
+                    //if callback equals true then return true
+                        return true;
+                    }
+                }
+            }
+    } else {
+        //if function was not provided then
+
+            //check if <list> is an Array
+            if(Array.isArray(list)) {
+                //if yes then make a for loop to iterate through <list> array
+                for (let i = 0; i < list.length; i++) {
+                    //if the current element is truthy then 
+                    if(list[i]) {
+                        //return true
+                        return true;
+                    }
+                }
+            } else {
+                //if <list> is not an array then
+                    //make a for IN loop to iterate through <list> object
+                    for (let key in list) {
+                        //if any of the <list> values return truthy then
+                        //return true
+                        if(list[key]) {
+                            return true;
+                        }
+                    }
+            }   
+    }                    
+    //return false
+    return false;
+}//////////////////////FIRST TRYYYYY!!!!!
 
 /** _.reduce
 * Arguments:
@@ -549,7 +634,16 @@ _.every = function(list, func) {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+_.reduce = (array, func, seed) => {
+    //check if a <seed> was given
 
+        //if <seed> was given
+
+            //
+
+        //if no <seed> was given
+
+}
 
 /** _.extend
 * Arguments:
