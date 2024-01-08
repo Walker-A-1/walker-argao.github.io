@@ -207,17 +207,19 @@ _.contains = (array, value) => {
         //if so return false
         return false;
     }
+    //make a memory variable initialized with false
+    let mem = false;
     //make a for loop to iterate through <array>
     //start at 0, end before <array>s length, step 1
     for (let i = 0; i < array.length; i++) {
         //check if current <array> index value is equal to <value> 
         if(array[i] === value) {
-            //if so then return true
-            return true;
+            //assign mem to true
+            mem = true;
         }
     }
-    //return false
-    return false;
+    //return false if memory variable holds false
+    return mem ? true : false;
 }
 
 /** _.each
