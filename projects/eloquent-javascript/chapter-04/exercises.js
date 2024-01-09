@@ -3,8 +3,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 //Write a range function that takes two arguments, start and end, and returns an
 //array containing all the numbers from start up to (and including) end.
-
-function range(start, end) {
+let result = []
+function range(start, end, step = 1) {
+  if(start === end) {
+    result.push(start);
+    return result.slice(1);
+  }
+  result.push(start);
+  return range(start + step, end, step);
 }
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
@@ -32,8 +38,28 @@ function reverseArray(array, result=[]) {
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace(toDo) {
-
+function reverseArrayInPlace(array, count = 0) {
+  //edge case
+  //if array is empty then return it
+  if(array[0] === undefined) {
+    return array;
+  }
+  //base
+  //When we get to the middle of the array
+  //if count is more than halve of array length rounded down
+  if(count > Math.floor(array.length / 2) - 1) {
+    //return array
+    return array;
+  }
+  //remember values we want to swap
+  let first = array[count];
+  let last = array[array.length - 1 - count];
+  //swap values
+  array[count] = last;
+  array[array.length - 1 - count] = first;
+  //recersion
+  //return function call with count + 1
+  return reverseArrayInPlace(array, count + 1);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
