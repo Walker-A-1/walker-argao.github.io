@@ -3,14 +3,30 @@
 ////////////////////////////////////////////////////////////////////////////////
 //Write a range function that takes two arguments, start and end, and returns an
 //array containing all the numbers from start up to (and including) end.
-let result = []
-function range(start, end, step = 1) {
-  if(start === end) {
-    result.push(start);
-    return result.slice(1);
+function range(start, end, step = 1, result = []) {
+  //edge case
+  //if step is negetive then return result
+  if(step < 0) {
+    return result;
   }
+  //if result is an empty array AND start and end are equal
+  if(result[0] === undefined && start === end) {
+    //return result
+    return result;
+  }
+  //base case
+  //if start is greater than end 
+  if(start > end) {
+    //return result
+    return result;
+  }
+  //code
+  //add start to end of result array
   result.push(start);
-  return range(start + step, end, step);
+  //recursion
+  //return self
+  //call difference: add one to start, include step, include result
+  return range(start + step, end, step, result);
 }
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
