@@ -131,10 +131,53 @@ function notSpec(x) {
   }
   return true;
 }
+/*
+### 6: `firstLetterCount`
+ - **Objective**: Find how many customer's names begin with a given letter
+ - **Input**: `Array`, `Letter`
+ - **Output**: `Number`
+ - **Constraints**:
+*/
+var firstLetterCount = (arr, letter) => {
+    //make a counting variable
+    let count = 0;
+    //for loop through <arr>
+    for(let i = 0; i < arr.length; i++) {
+      //check if current ["name"] starts with <letter>
+      if(arr[i]["name"][0].toUpperCase() === letter.toUpperCase()) {
+        //if yes then add one to counting variable
+        count++;
+      }
+    }
+    //return count
+    return count;
+  };/////I am building these in replit and pasting them here BTW™
 
-var firstLetterCount;
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = (arr, customer, letter) => {
+  //make a counting variable
+  let count = 0;
+  //access the customer object
+  //stor that val
+  let custObj = {}
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i]["name"] === customer) {
+      custObj = arr[i];
+      break;
+    }
+  }
+  //for loop through the customer objects friends array
+  //loop through the friends array
+  for(let i = 0; i < custObj['friends'].length; i++) {
+    //if current friends name starts with <letter> 
+      //then add one to counting variable
+    if(letter.toUpperCase() === custObj['friends'][i]['name'][0].toUpperCase()) {
+      count++;
+    }
+  }
+  //return counting variable
+  return count;
+};
 
 var friendsCount;
 
