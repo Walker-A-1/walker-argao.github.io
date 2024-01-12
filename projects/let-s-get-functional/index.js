@@ -179,7 +179,25 @@ var friendFirstLetterCount = (arr, customer, letter) => {
   return count;
 };
 
-var friendsCount;
+var friendsCount = (arr, them) => {
+  //make name storage array
+  let storName = []
+  //loop through all of the customers in the <arr>
+  for (let i = 0; i < arr.length; i++) {
+    //loop over friends array in current customer
+    for(let inI = 0; inI < arr[i]['friends'].length; inI++) {
+      //if current friend objects name value is equal to <them>,
+      if(arr[i]['friends'][inI]['name'] === them) {
+        //add current customers name to name storage
+        //break
+        storName.push(arr[i]['name']);
+        break;
+      }
+    }
+  }
+  //return name storage
+  return storName;
+};
 
 var topThreeTags;
 
