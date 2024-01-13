@@ -199,7 +199,61 @@ var friendsCount = (arr, them) => {
   return storName;
 };
 
-var topThreeTags;
+var topThreeTags = (arr) => {
+  //make a storage array for the result
+  let result = []
+  //make a tally storage. 
+  //directive: keep track of how many times each string appears in all tags with an object
+  let storTally = {}
+  //loop through the <arr> customer objects
+  for (let i = 0; i < arr.length; i++) {  
+    //loop through tags array
+    for (let inI = 0; inI < arr[i]["tags"].length; inI++) {
+      //check if current tag has already been logged
+      if(storTally[arr[i]["tags"][inI]]) {
+        //if yes then add one to its log
+        storTally[arr[i]["tags"][inI]] += 1;
+      } else {
+        //if not then create log with starting value of one
+        storTally[arr[i]["tags"][inI]] = 1;
+      }
+    }
+  }
+  //make storage strings for all three top tags
+  //use the recursive function made below to find the top tags. 
+  //once you find the first and second tag, delete that tag from the tally storage, so that you can search for the next largest tage
+  let first = topTally(storTally);
+  delete storTally[first];
+  let second = topTally(storTally);
+  delete storTally[second];
+  let third = topTally(storTally);
+  //add all three top tag strings together into result array
+  result.push(first, second, third);
+  //return the result array
+  return result;
+};
+
+//make a function to find the object property with the first highest number value
+//take in an object return a string
+function topTally(obj) {
+  //make result variable to store properties
+  let result = {zero: 0};
+  let resKey = 'zero';
+  //for in loop over the given object property
+  for (let key in obj) {
+    //if the current key value is higher than the result resKey value then
+    if(obj[key] > result[resKey]) {
+      //erase result
+      result = {}
+      //reassign result to current property
+      result[key] = obj[key];
+      //reassign resKey to current key
+      resKey = key;
+    }
+  }
+  //return key of result
+  return resKey;
+}
 
 var genderCount;
 
