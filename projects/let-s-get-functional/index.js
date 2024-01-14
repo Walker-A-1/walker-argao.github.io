@@ -255,7 +255,47 @@ function topTally(obj) {
   return resKey;
 }
 
-var genderCount;
+var genderCount = arr => {///////////////////////Logical error!! in instructions. male and female is a sex not a gender.
+  //make a result object
+  //initialized with keys called: "female", "male", "non-binary"
+  //with starting value of zero
+  const result = {
+    female: 0,
+    male: 0,
+    'non-binary': 0
+  }
+  //make a tally array. to keep track of this order: "female", "male", "non-binary"
+  const tally = [0, 0, 0]
+  //make an array with string values in this order: "female", "male", "non-binary"
+  const order = ['female', 'male', 'non-binary']
+  //make a for loop for <arr>
+  for (let i = 0; i < arr.length; i++) {
+    //if current objects 'gender' value equals on of the three
+      //then add 1 to the tally array
+    if(arr[i]['gender'] === 'female') {
+      tally[0] += 1;
+    } else if(arr[i]['gender'] === 'male') {
+        tally[1] += 1;
+    } else if(arr[i]['gender'] === 'non-binary') {
+      tally[2] += 1;
+    }
+  }
+  //use reduce on order array
+  //reduce callback function should
+  order.reduce((res, str) => {
+    //assign str to the appropriate index 
+    console.log(str);
+    if (order.indexOf(str) === 0) {
+      result['female'] = tally[0];
+    } else if (order.indexOf(str) === 1) {
+        result['male'] = tally[1];
+    } else if (order.indexOf(str) === 2) {
+        result['non-binary'] = tally[2];
+    }
+  }, {});
+  //return result
+  return result;
+};/////////////////////////such jank code. to make the array method work on an object. but I learned something about reduce and array so not a total loss.
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
