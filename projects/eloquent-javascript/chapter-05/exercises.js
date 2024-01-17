@@ -43,21 +43,22 @@ function every(arr, test) {
 // /////////////////////////////////////////////////////////////////////////////
 
 function dominantDirection(text) {
-  //make an object
-  //with properties: 'ltr', 'rtl', 'ttb'
-  //starting value: 0
-  //directive: keep track of the direction count of every character
-  const direction = {ltr: 0, rtl: 0, ttb: 0}
+  //make two tally variables
+  //one for ltr count and one for rtl count
+
   //make a for loop to iterate through the characters in <text>
   for (let i = 0; i < text.length; i++) {
-    ////find out the what script the current character belongs too
+    //make a variable for the char code
+    //initialize it with UTF-16 code of the current character
+      //with charCodeAt method
 
-    //update the directions object appropriatly
+    //use the characterScript helper function to find the script object for current character
+
+    //check the direction of the above object that got returned
+      //if the direction is 'ltr' then add 1 to the count variable and vice versa for 'rtl'
 
   }
-  //reduce the directions object to which ever direction has the highest tally number
-
-  //return the key of directions object
+  //return 'ltr' or 'rtl' for which ever coresponding variable is greater
 
 }
 
