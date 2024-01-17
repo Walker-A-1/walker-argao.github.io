@@ -32,22 +32,36 @@ function loop(val, test, step, body) {
 
 function every(arr, test) {
   for(let i = 0; i < arr.length; i++) {
-    console.log(!test(arr))
     if(!test(arr[i])) {
       return false;
     }
   }
   return true;
 }
-console.log(every([1, 3, 5], n => n < 10), 'should be true');
 // /////////////////////////////////////////////////////////////////////////////
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(text) {
+  //make an object
+  //with properties: 'ltr', 'rtl', 'ttb'
+  //starting value: 0
+  //directive: keep track of the direction count of every character
+  const direction = {ltr: 0, rtl: 0, ttb: 0}
+  //make a for loop to iterate through the characters in <text>
+  for (let i = 0; i < text.length; i++) {
+    ////find out the what script the current character belongs too
+
+    //update the directions object appropriatly
+
+  }
+  //reduce the directions object to which ever direction has the highest tally number
+
+  //return the key of directions object
 
 }
 
+console.log(charCodeAT());
 // /////////////////////////////////////////////////////////////////////////////
 //  //////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
