@@ -45,24 +45,30 @@ function every(arr, test) {
 function dominantDirection(text) {
   //make two tally variables
   //one for ltr count and one for rtl count
-
+  //initialize both at 0
+  let ltrCount = 0;
+  let rtlCount = 0;
   //make a for loop to iterate through the characters in <text>
   for (let i = 0; i < text.length; i++) {
     //make a variable for the char code
     //initialize it with UTF-16 code of the current character
-      //with charCodeAt method
+      //with charCodeAt method 
 
     //use the characterScript helper function to find the script object for current character
-
+    let script = characterScript(text.charCodeAt(i));
     //check the direction of the above object that got returned
       //if the direction is 'ltr' then add 1 to the count variable and vice versa for 'rtl'
-
+      console.log(script.direction);
+    if(script.direction === 'ltr') {
+      ltrCount++;
+    } else {
+      rtlCount++;
+    }
   }
   //return 'ltr' or 'rtl' for which ever coresponding variable is greater
-
+  return ltrCount > rtlCount ? 'ltr' : 'rtl';
 }
 
-console.log(charCodeAT());
 // /////////////////////////////////////////////////////////////////////////////
 //  //////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
