@@ -58,8 +58,7 @@ function dominantDirection(text) {
     let script = characterScript(text.charCodeAt(i));
     //check the direction of the above object that got returned
       //if the direction is 'ltr' then add 1 to the count variable and vice versa for 'rtl'
-      console.log(script.direction);
-    if(script.direction === 'ltr') {
+    if(script !== null && script.direction === 'ltr') {
       ltrCount++;
     } else {
       rtlCount++;
