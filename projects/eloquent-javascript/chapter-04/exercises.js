@@ -156,8 +156,54 @@ function nth(list, index) {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
-
+function deepEqual(x, y) {
+  //edge cases
+  //if only one param is `null` return false
+  if(x === null && y !== null || x !== null && y === null) {
+    return false;
+  }
+  //if only one param is `undefined` return false
+  if(x === undefined && y !== undefined || x !== undefined && y === undefined) {
+    return false;
+  }
+  //if x AND y are empty objects then return true
+    //to know do below
+      //convert the object properties into an array of keys, then check if that array length is 0
+      //Also follow to object by `.constructor` and ask if it is equal to `Object`
+  if (Object.keys(x).length === 0 && x.constructor === Object && Object.keys(y).length === 0 && y.constructor === Object) {
+    return true;
+  }
+  //determine if <x> AND <y> are NOT complex data types
+  if(typeof x !== 'object' && typeof y !== 'object') {
+    //if so then return strictly equal with <x> and <y> passed in
+    return x === y;
+  }
+  //determine if <x> OR <y> are not complex data types
+  if(typeof x !== 'object' || typeof y !== 'object') {
+    //if so return false
+    return false;
+  }
+  //make arrays of <x> and <y> keys
+  let xKeys = Object.keys(x);
+  let yKeys = Object.keys(y);
+  //check if arrays above are the same length
+  if(xKeys.length !== yKeys.length) {
+    //if not then return false
+    return false;
+  }
+  //make a for loop to zip <x> and <y> keys and values
+  for(let i = 0; i < xKeys.length; i++) {
+    //check if current x key is NOT contained in y keys array
+    //OR
+    //use deepEqual to compare the current x and y values . current key index,
+    //to see if above returns false
+    if(!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[yKeys[i]])) {
+      //if so then return false
+      return false;
+    }
+  }
+  //return true
+  return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
