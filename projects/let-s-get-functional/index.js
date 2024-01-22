@@ -3,7 +3,7 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require(/* Replace this with the name of your lodown! */);
+var _ = require("underbar");
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -16,7 +16,7 @@ var _ = require(/* Replace this with the name of your lodown! */);
  *
  * 4. To test your work, run the following command in your terminal:
  *
- *    npm start --prefix ./<YOUR_GITHUB_FOLDER/projects/let-s-get-functional
+ *    npm start --prefix ./walker-argao.github.io/projects/let-s-get-functional
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
@@ -26,7 +26,7 @@ var _ = require(/* Replace this with the name of your lodown! */);
 var maleCount = function(array) {
     //make a result variable
     //assign result to the value of the filter method called on the <array>
-    const result = array.filter((sex) => sex === 'male');
+    const result = array.filter((element, index, array) => element["gender"] === 'male');
     //return the length of result array
     return result.length;
 };                  //tested myself. seems to work
@@ -37,7 +37,7 @@ var femaleCount = (array) => {
     //make for loop for <array>
     for (let i = 0; i < array.length; i++) {
         //if element is equal to 'female' then 
-        if (array[i] === 'female') {
+        if (array[i]["gender"] === 'female') {
             //push 1 to storage array
             storage.push(1);
         }
