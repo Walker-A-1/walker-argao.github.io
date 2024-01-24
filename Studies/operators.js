@@ -6,14 +6,17 @@
  * two values or resolve something to a boolean value. My favorite is the Ternary operator, it can condense an if statement into just one
  * line of code.
  * 
- * *888we2823809781 unfinished 1. Assignment Operators: Assignment operators are used by taking two operands and assigning the value of the right operand to the left operand.
+ *1. Assignment Operators: Assignment operators are used by taking two operands and assigning the value of the right operand to the left operand. 
+ * This is done to give a variable a new value, make it increase or decrease by one, or to remember the results of a different operation completed to your right.
  * 
- * 974y710714 unfinished 2. Arithmetic Operators: Arithmetic operators are used to add two value together or simply increment or decrement by 1 (just math LOLZ).
+ * 2. Arithmetic Operators: Arithmetic operators are used to add two value together or simply increment or decrement by 1. 
+ * They can be used for other simple math as well, for example finding sum, differnce, product, or the quotient of two numbers.
  *
- * 48742179107891 unfinished 3. Comparison Operators: Comparison operators are used to compare two values to see if they are different of the same/similar.
- * They will return true or false.
+ * 3. Comparison Operators: Comparison operators are used to compare two values to see if they are different or the same/similar.
+ * They will return true or false. They can also be used with Bang to reverse the result, greater than or lesser than to add that condition to the operation.
  * 
- * 1243730714187 unfinished 4. Logical Operators: Logical operators take one or two expressions and resolve to a boolean value and produce one logical boolean value.
+ * 4. Logical Operators: Logical operators take one or two expressions and resolve to a boolean value and produce one logical boolean value.
+ * They can be used to check if two results are true or not, to see if at least one result is true, or to reverse the operation.
  * 
  * 5. Unary Operators: Unary Operators are operators that take only one operand, either on the right or left. Typically used as shorthand, unary operators are
  * more effecient than other operators.

@@ -237,10 +237,9 @@ _.contains = (array, value) => {
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
-_.each = (collection, func) => {
-    //check if <collection> is an array
+_.each = (collection, func) => { //check if <collection> is an array
     if (Array.isArray(collection)) {
-        //if so then 
+        //if so then
         //make a for loop to iterate through <collection> array
         //start at 0, stop before <collection> length, step 1
         for (let i = 0; i < collection.length; i++) {
@@ -257,6 +256,7 @@ _.each = (collection, func) => {
             func(collection[key], key, collection);
         }
     }
+ 
 }
 //console.log(_.each(["a","b","c"], function(e,i,a){ console.log(e)}));// should be 'a' 'b' 'c'
 /** _.unique
@@ -318,16 +318,17 @@ _.unique = array => { ////////////////////////////////////This one took me two t
 *   _.filter([1,2,3,4,5], function(x){return x%2 === 0}) -> [2,4]
 * Extra Credit:
 *   use _.each in your implementation
-//this one accepts a collection and a function. return result of function for each element in <collection> array
+//.       /\this one accepts a collection and a function. return result of function for each element in <collection> array
 */
-_.filter = (array, func) => {////////////////I tried extra credit first. Problem was I could not get my own _.each function to work lol.
-    //make result array
-    let result = []
-    //make a for loop for <array>
+_.filter = (array, func) => {
+    //make a result array
+    let result = [];
+    //for loop iterate through <array>
     for(let i = 0; i < array.length; i++) {
-        //check if calling <func> with current index returns true
-        if(func(array[i], i, array)) {
-            //if so then add the current <array> element to the result array
+        //use <func> on current item in <array>. Give func params: element, index, and array
+        //if above returns true 
+            //then push current element in <array> to result array
+        if (func(array[i], i, array)) {
             result.push(array[i]);
         }
     }
@@ -429,12 +430,12 @@ _.map = function(collection, func) {
         for(let i = 0; i < collection.length; i++) {
             //call the input function and pass in
             //current element, index, <collection>
-            //add the result to the end of the 
+            //add the result to the end of the
             stor.push(func(collection[i], i, collection));
-        } 
+        }
     } else {
         //if <collection> is not array then
-        //make a for in loop to iterate through the collection key values 
+        //make a for in loop to iterate through the collection key values
         for (let key in collection) {
             //callback function with
             //current value, key, <collection>
@@ -443,6 +444,7 @@ _.map = function(collection, func) {
     }
     //return storage array
     return stor;
+ 
 }
 
 
