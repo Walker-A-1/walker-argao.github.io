@@ -38,7 +38,9 @@
  * 
  * 7. Closures: Functions form closures around the data they house. If an object returned from the Function and is held in memory somewhere (referenced), 
  * that closure stays ALIVE, and data can continue to exist in these closures! ///
- * 
+ * Function Closure: Closure in Javascript is when Functions reference values or other functions in an outside local scope. This can be useful when creating 
+ * constructor objects, constroctor counting functions can hold onto separate counting values as to not interfere with each other but still work identically.
+ * closures can also be useful in keeping values anonomous. 
  *
  */
 
@@ -140,3 +142,13 @@ canSee(variableLet);// resolves to false;
 canSee(variableVar)// resolves to false;
 
 //7. Function Closures //
+//the function named `myName` shows closure by calling the `printName` function inside its local scope. 
+//this works because we are remaining inside the scope of the function, so it still has access to the `name` variable.
+let myName = () => {
+    var name = "walker"; 
+    function printName() {
+      console.log(name);//`name` is still accesable because we are in the local scope of the function
+    }
+    printName();
+  }
+  myName();//prints 'walker' to the consol.
