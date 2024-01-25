@@ -33,20 +33,20 @@
  * the funciton is used.
  * It is proper form to declare all of your variables at the top of your code.
 */
-// 1. Declaration 
+// 1. Declaration //
 //Here I am telling javascript that I want to make a variable called variable. 
 //Note: the value is undefined because I did not give this tentacle anything to hold onto.
 var variable;
 
 console.log(variable); // this will return `undefined`
 
-//1. Assinment
+// 1. Assinment //
 //Here I am declaring a new variable `amString` and telling it to hold onto the value of `hiiiii`.
 var amString = 'hiiiii';
 
 console.log(amString); //this will return our value `hiiiii` because that is what we told the variable to hold on to.
 
-//2. Var
+// 2. Var //
 //Here we can access the inside variable outside of the if statement. We can reference the variable before declaration. We can also redeclare the variable. 
 //This creates a logical error, the program will not flag logical errors. This will waste a lot of time.
 //problem can be redeclared
@@ -59,7 +59,7 @@ console.log(inside);//prints 'yo'. not good.
 var inside = 'go away';
 console.log(inside);//prints 'go away. without errors.
 
-//2. Let and Const
+// 2. Let and Const //
 //explain block scope:The code below is written improperly. if you tried to run it you would get two reference errors and one syntax error. 
 // This is because the let and const variables are block scoped, not hoisted, and can not be reassigned.
 //Javascript
@@ -73,7 +73,7 @@ if(!false) {
 }
 console.log(ik + fi); // flags a reference error because it is trying to access variable that are inside a code block.
 
-//3. Hoisting
+// 3. Hoisting //
 //Here I have the variable top at the top, it works because we can reference it anywhere underneath it.
 //I have the variable bottom at the bottom, it causes problems if you try to access it before its declaration. 
 //No error message means we have to work out the error and find it ourselves.

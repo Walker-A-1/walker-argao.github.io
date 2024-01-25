@@ -27,7 +27,7 @@
  * 
  */
 
-//1. Assignment Operators
+// 1. Assignment Operators //
 //first example is of the basic assignment operator. It takes to value 'foo' and assigns it to the smalbein variable
 //second example is of the addition assignment operator. It is short hand for current value plus new value. (increment = increment + 1)
 //third example is of the subtraction assignment operator. It is short hand for current value minus new value. (decrement = decrement - 1)
@@ -64,7 +64,7 @@ var modulate = 12;
 modulate %= 2;
 console.log(modulate); // prints 0 to the console
 
-//2. Arithmetic operators
+// 2. Arithmetic operators //
 //first example is adding 1 and 1 together
 //second example is subtracting 1 from 1
 //third example is multiplying 1 by 2
@@ -86,7 +86,7 @@ console.log(modulated);//prints 1;
 var quotient = 10 / 2
 console.log(quotient); // prints 5
 
-//3. Comparison operators
+// 3. Comparison operators //
 //first example asks is 1 greater than 2. Gives us false.
 //second example asks is 1 less than 2. Gives us true.
 //third example asks is the string of "1" loosley equal to the number 1. Which is true but they are not exactly the same thing so it is less useful.
@@ -115,7 +115,7 @@ console.log(1 >= 1);//prints true
 console.log(1 <= 2);//prints true
 console.log(2 <= 2);//prints true
 
-//4. Logical operators
+// 4. Logical operators //
 //first example shows the logical AND operator. It only returns true if both of its operands are true
 //second example shows off the logical Or operator. It returns true if either right or left operand is true
 //third example is the bang or not operator. It (UNO) reverses the boolean value to its right
@@ -128,7 +128,7 @@ console.log(false || false);//prints false
 console.log(!true);//prints false
 console.log(!false);//prints true
 
-//5. Unary Operators
+// 5. Unary Operators //
 //first example is the Bitwise not. It takes a value to the right, converts it to a number, adds one, and multiplies it by -1. -(x + 1)
 //second example is the Void operator. It takes a value to the right, and returns undefined. That sounds useless, if you know something I don't pls share.
 //third example is the typeOf operator. It will read the values type and return it as a string. It can not differenciate between a object and an array, returns 'object' for both
@@ -150,7 +150,7 @@ var boolllll = {first: 'one', "infinity!": infinity, second: 'two'};
 delete boolllll["infinity!"];
 console.log(boolllll);//prints [object Object] {first: "one", second: "two"}
 
-//6. Ternary Operators
+// 6. Ternary Operators //
 //This is a very basic example to illustrate how the ternary operator works. 
 console.log(true ? "it was true" : "it was false");//prints "it was true".
 console.log(false ? "it was true" : "it was false");//prints "it was false".

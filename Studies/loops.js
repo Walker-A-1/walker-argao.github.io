@@ -31,7 +31,7 @@
  * Ending with the curly braces containing the repeatable instructions.
  */
 
-////1. While, For, and For-In Loops
+// 1. While, For, and For-In Loops //
 /*
 First loop is the while loop. It is logging the first element in the <copy> array to the console.
 Then it is removing the first element in the array and starting over. It repeats as long as the length of copy is not 0.
@@ -60,7 +60,7 @@ for(let key in objectNumbers) {
     console.log(objectNumbers[key]);//prints 1, 2, 3, 4, 5 to the console. with separate calls
 }
 
-////2. Loop any number of timer forward or backwards
+// 2. Loop any number of timer forward or backwards //
 /*First for loop starts counting at one and ends after whatever <amount> is, also prints the number it is on. 
 Second for loop starts counting at whatever <amount> is and ends at one. Printing the number it is on every time.
 Notice the step is negetive, this makes the loop count backwards.
@@ -73,7 +73,7 @@ for(let i = amount; i >= 1; i--) {
     console.log(i);//prints numbers starting at 1000 and ending at 1
 }
 
-////3. Loop backwards and forwards over an Array
+// 3. Loop backwards and forwards over an Array //
 /*The first for loop prints all the values in count from first to last. Using bracket notation and the changing value of i 
 to get the values at every index.
 The second loop starts counting at the end of the count array length minus one. It steps by minus one. It ends after it has
@@ -87,8 +87,10 @@ for(let i = count.length - 1; i >= 0; i--) {
     console.log(count[i]);//prints 10,9,8,7,6,5,4,3,2,1 to the console. separatly
 }
 
-////4. Loop over an Object
-
+// 4. Loop over an Object //
+/* Below is a For-In the loop that loops over the <object>. It runs the code for every property in object, 
+specifying the key of the property every time. 
+*/
 let object = {
     first: 1,
     second: 2,

@@ -10,7 +10,7 @@
  * because they are technically functions.
  */
 
-//1. string operators
+// 1. string operators //
 //first I concatinate the first and last variables to produce a complete name
 //second I concatinate the two name variables and assign them to the first variable, which doesn't make the most sence but this is boring so lets go fast
 let first = 'Walker';
@@ -19,7 +19,7 @@ console.log(first + last);//produces `Walker Argao`
 
 console.log(first += last);//produces `Walker Argao` assigned to first variable
 
-//2. string methods
+// 2. string methods //
 //String.slice() is a method to cut out a certain part of a string that we want. It takes two arguments. First argument is where you want to start, the start character 
 //will be included in the final cutout. The second argument is the end of the cutout, it is excluded from the final product so only the character before the end argument 
 //will be included.
